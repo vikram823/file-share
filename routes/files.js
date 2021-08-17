@@ -6,6 +6,11 @@ const File = require("../models/files");
 const { v4: uuid4 } = require("uuid");
 const {sendEmail} = require("../services/emailServices");
 
+// start
+router.get("/", async(req, res)=>{
+  res.render("index");
+})
+
 const storage = multer.diskStorage({
   destination: (req, res, callback) => {
     callback(null, "uploads/");
@@ -24,12 +29,6 @@ const upload = multer({
     fileSize: 100000 * 100,
   },
 }).single("myFile");
-
-// start
-
-router.get("/", async(req, res)=>{
-  res.render("index");
-})
 
 // file upload
 router.post("/api/files", upload, async (req, res) => {
