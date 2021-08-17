@@ -25,6 +25,12 @@ const upload = multer({
   },
 }).single("myFile");
 
+// start
+
+router.post("/", async(req, res)=>{
+  res.render("index");
+})
+
 // file upload
 router.post("/api/files", upload, async (req, res) => {
   try {
