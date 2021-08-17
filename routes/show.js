@@ -7,7 +7,7 @@ router.get("/files/:uuid", async(req, res)=>{
         
         const file = await File.findOne({uuid: req.params.uuid})
         if(!file){
-            res.render("download", {error: "No files"});
+            res.status(404).render("download", {error: "No files"});
         }
 
         res.render("download",{
@@ -18,7 +18,7 @@ router.get("/files/:uuid", async(req, res)=>{
         });
 
     } catch (e) {
-        res.render("download", {error: "something went wrong"});
+        res.status(500).render("download", {error: "something went wrong"});
     }
 })
 

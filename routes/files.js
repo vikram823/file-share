@@ -26,7 +26,7 @@ const upload = multer({
 }).single("myFile");
 
 // file upload
-router.post("/api/fileUpload", upload, async (req, res) => {
+router.post("/api/files", upload, async (req, res) => {
   try {
     if (!req.file) {
       return res.json({ error: "All fields required" });
