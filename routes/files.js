@@ -27,7 +27,7 @@ const upload = multer({
 
 // start
 
-router.post("/", async(req, res)=>{
+router.get("/", async(req, res)=>{
   res.render("index");
 })
 
