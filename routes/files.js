@@ -8,7 +8,7 @@ const {sendEmail} = require("../services/emailServices");
 
 // start
 router.get("/", async(req, res)=>{
-  res.render("index");
+  res.render("home");
 })
 
 const storage = multer.diskStorage({
